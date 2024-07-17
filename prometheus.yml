@@ -29,3 +29,11 @@ scrape_configs:
     - targets: ['node-exporter:9100']
       labels:
         alias: 'node-exporter'
+
+
+  - job_name: 'elasticsearch-exporter'
+    scrape_interval: 5s
+    static_configs:
+    - targets: ['elasticsearch-exporter:9114']
+      labels:
+        alias: 'elasticsearch-exporter'
