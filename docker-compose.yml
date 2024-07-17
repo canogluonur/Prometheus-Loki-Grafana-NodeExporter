@@ -63,6 +63,14 @@ services:
     ports:
       - "9090:9090"
 
+  elasticsearch-exporter:
+    container_name: elasticsearch-exporter
+    image: quay.io/prometheuscommunity/elasticsearch-exporter:latest
+    command:
+      - '--es.uri=http://elasticsearch:9200'
+    ports:
+      - "9114:9114"
+      
 
 networks:
   common-network:
