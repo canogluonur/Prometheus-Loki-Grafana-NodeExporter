@@ -37,3 +37,11 @@ scrape_configs:
     - targets: ['elasticsearch-exporter:9114']
       labels:
         alias: 'elasticsearch-exporter'
+
+
+  - job_name: postgres-exporter
+    scrape_interval: 5s    
+    static_configs:
+    - targets: ['postgres-exporter:9187']
+      labels:
+        alias: 'postgres-exporter' 
