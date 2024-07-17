@@ -70,6 +70,16 @@ services:
       - '--es.uri=http://elasticsearch:9200'
     ports:
       - "9114:9114"
+
+
+  postgres-exporter:
+    container_name: postgres-exporter
+    image: prometheuscommunity/postgres-exporter
+    ports:
+      - 9187:9187
+    environment:
+      DATA_SOURCE_NAME: "postgresql://$POSTGRES_USER:$POSTGRES_PASSWORD@$HOST:5432/?sslmode=disable"
+
       
 
 networks:
