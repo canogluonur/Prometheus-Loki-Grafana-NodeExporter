@@ -10,8 +10,6 @@ services:
       - "3100:3100"
     restart: unless-stopped
     command: -config.file=/etc/loki/loki-config.yml
-    networks:
-      - common-network    
 
 
   promtail:
@@ -22,8 +20,6 @@ services:
       - ./promtail:/etc/promtail
     restart: unless-stopped
     command: -config.file=/etc/promtail/promtail-config.yml
-    networks:
-      - common-network    
   
   grafana:
     container_name: grafana    
@@ -33,8 +29,6 @@ services:
     ports:
       - "3000:3000"
     restart: unless-stopped
-    networks:
-      - common-network    
 
 
   node-exporter:
@@ -42,8 +36,6 @@ services:
     image: prom/node-exporter
     ports:
       - "9100:9100"
-    networks:
-      - common-network
 
   cadvisor:
     image: gcr.io/cadvisor/cadvisor:latest
@@ -61,8 +53,6 @@ services:
       - /dev/disk/:/dev/disk:ro
     ports:
       - 8080:8080
-    networks:
-      - common-network
 
   prometheus:
     container_name: prometheus
@@ -72,8 +62,6 @@ services:
       - ./prometheus.yml:/etc/prometheus/prometheus.yml
     ports:
       - "9090:9090"
-    networks:
-      - common-network     
 
 
 networks:
