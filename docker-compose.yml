@@ -67,7 +67,7 @@ services:
     container_name: elasticsearch-exporter
     image: quay.io/prometheuscommunity/elasticsearch-exporter:latest
     command:
-      - '--es.uri=http://elasticsearch:9200'
+      - '--es.uri=http://$ELASTICU_USER:$ELASTIC_PASSWORD@elasticsearch:9200'
     ports:
       - "9114:9114"
 
